@@ -1,2 +1,2 @@
-# ShareVideos
-ShareVideos変換ツール
+# MGS
+MGS変換ツール
