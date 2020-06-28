@@ -50,6 +50,8 @@ function click_change(){
 
   if(check.checked){
     localStorage.setItem("affriate_code",affriate_code);
+  } else {
+    localStorage.removeItem("affriate_code",affriate_code);
   }
 
 }
