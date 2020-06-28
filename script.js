@@ -5,11 +5,14 @@ window.onload = () => {
     let ele = document.getElementById("affriate_code");
     ele.value = affriate_code;
   }
-
 }
 
-function set_aff_code(url,code){
+function getProduct_code(url,code){
   return url + "?aff=" + code;
+}
+
+function getAff_code(url,code){
+  return url + "&aff=" + code;
 }
 
 //変換ボタンをクリックした場合
@@ -23,7 +26,20 @@ function click_change(){
 
   let product_url = document.getElementById("product_url").value;
 
-  let url = set_aff_code(product_url,affriate_code);
+  try{
+    new URL(product_url);
+  } catch {
+    alert("商品urlで入力された値がurlではありません");
+    return false;
+  }
+
+  let url = "";
+
+  if(product_url.match("product")){
+    url = getProduct_code(product_url,affriate_code);
+  } else {
+    url = getAff_code(product_url,affriate_code);
+  }
 
   add_text(url);
 
@@ -45,8 +61,6 @@ function text_select(ele){
 select = (ele) => {
   ele.select();
 };
-
-
 
 function add_text(url){
   let textarea = document.getElementById("exampleFormControlTextarea1");
