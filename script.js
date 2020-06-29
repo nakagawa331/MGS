@@ -33,6 +33,11 @@ function click_change(){
     return false;
   }
 
+  if(!(product_url.match("www.mgstage.com"))){
+    alert("商品urlに入力された値が、MGSのurlではありません");
+    return false;
+  }
+
   let url = "";
 
   if(product_url.match("product")){
@@ -44,8 +49,8 @@ function click_change(){
   add_text(url);
 
   let ele = document.getElementById("exampleFormControlTextarea1");
-  select(ele);
-  
+  ele.select();
+    
   let check = document.getElementById("check");
 
   if(check.checked){
@@ -59,10 +64,6 @@ function click_change(){
 function text_select(ele){
   ele.select();
 }
-
-select = (ele) => {
-  ele.select();
-};
 
 function add_text(url){
   let textarea = document.getElementById("exampleFormControlTextarea1");
