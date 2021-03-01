@@ -33,11 +33,6 @@ function click_change(){
     return false;
   }
 
-  if(!(product_url.match("www.mgstage.com"))){
-    alert("商品urlに入力された値が、MGSのurlではありません");
-    return false;
-  }
-
   let url = "";
 
   if(product_url.match("product")){
